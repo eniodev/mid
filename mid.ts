@@ -67,13 +67,13 @@ const mid = ({ saveTo, compress, namingRule }: Preferences) => {
           })
           chunks = [];
           console.log(info.size);
+          next();
       });
     });
     bb.on('field', (name, val, info) => {
        //Say something...
     });
     req.pipe(bb);
-    next();
 }
 
 middle.single = (fieldname: string) => {
@@ -95,6 +95,7 @@ middle.single = (fieldname: string) => {
               });
               chunks = [];
             console.log(info.size);
+            next();
         });  
         }
         bb.on('field', (name, val, info) => {
@@ -102,7 +103,6 @@ middle.single = (fieldname: string) => {
         });
       });
       req.pipe(bb);  
-      next();
       }
 }
 return middle;
