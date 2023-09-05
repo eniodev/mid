@@ -16,8 +16,8 @@ const namingRule = () => {
 const middle = mid({ saveTo: 'uploads', namingRule });
 
 app.post('/', middle, async (req, res) => {
-    res.json(typeof req.file);
-    console.log(req.file);
+    res.json(JSON.stringify(req.files));
+    console.log(req.files);
 })
 
 const port = process.env.PORT || 3000;
